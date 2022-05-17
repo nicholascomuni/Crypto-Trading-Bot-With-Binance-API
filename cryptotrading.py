@@ -22,12 +22,12 @@ class Crypto_bot:
 
 
     async def bar_signal_event(self,stream_name):
-        bitonic_address = f"wss://stream.binance.com:9443/{stream_name}" # /ws
-        #print(f"connecting to {bitonic_address}")
-        print(bitonic_address)
-        async with websockets.connect(bitonic_address) as websocket:
+        binance_address = f"wss://stream.binance.com:9443/{stream_name}" # /ws
+        #print(f"connecting to {binance_address}")
+        print(binance_address)
+        async with websockets.connect(binance_address) as websocket:
             print("DPS")
-            #print(f"{bitonic_address} connected")
+            #print(f"{binance_address} connected")
             counter = 0
             while True:
                 counter += 1
@@ -48,10 +48,10 @@ class Crypto_bot:
                     self.on_bar_close(bar)
 
     async def bar_close_event(self,stream_name):
-        bitonic_address = f"wss://stream.binance.com:9443/ws/{stream_name}" # /ws
-        #print(f"connecting to {bitonic_address}")
-        async with websockets.connect(bitonic_address) as websocket:
-            #print(f"{bitonic_address} connected")
+        binance_address = f"wss://stream.binance.com:9443/ws/{stream_name}" # /ws
+        #print(f"connecting to {binance_address}")
+        async with websockets.connect(binance_address) as websocket:
+            #print(f"{binance_address} connected")
             counter = 0
             while True:
                 counter += 1
@@ -77,11 +77,11 @@ class Crypto_bot:
         for stream in streams_name:
             streams = streams + stream + "/"
 
-        bitonic_address = f"wss://stream.binance.com:9443/stream?streams={streams}" # /ws
-        print(bitonic_address)
-        bitonic_address = bitonic_address[:-1]
-        print(bitonic_address)
-        async with websockets.connect(bitonic_address) as websocket:
+        binance_address = f"wss://stream.binance.com:9443/stream?streams={streams}" # /ws
+        print(binance_address)
+        binance_address = binance_address[:-1]
+        print(binance_address)
+        async with websockets.connect(binance_address) as websocket:
             counter = 0
             while True:
                 counter += 1

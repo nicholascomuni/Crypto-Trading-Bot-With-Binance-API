@@ -17,16 +17,7 @@ class Bot(Crypto_bot):
 
         self.main_loop()
 
-    def on_bar_close(self,bar):
-        print("Ticker: {}\n
-              Datetime: {}\n
-              Opentime: {}\n
-              Closetime: {}\n
-              Interval: {}\n
-              Open: {}\n
-              Close: {}\n
-              Closed: {}\n
-              \n".format(bar['ticker'],
+    def on_bar_close(self,bar):print("Ticker: {}\nDatetime: {}\nOpentime: {}\nClosetime: {}\nInterval: {}\nOpen: {}\nClose: {}\nClosed: {}\n\n".format(bar['ticker'],
               bar["datetime"],
               bar['open_time'],
               bar['close_time'],

@@ -25,7 +25,7 @@ First you will need to install the dependencies:
 
 ```pip install -r requirements.txt```
 
-### Web Socket Hello World
+### Web Sockets Hello World
 Run:
 
 ```python main.py```
@@ -67,15 +67,8 @@ def on_init(self):
 
 This event is called whenever a a bar of a ticker you subscribed is closed. You can use it to update your indicators, make orders and apply your trading strategies. 
 ```
-print("Ticker: {}\n
-              Datetime: {}\n
-              Opentime: {}\n
-              Closetime: {}\n
-              Interval: {}\n
-              Open: {}\n
-              Close: {}\n
-              Closed: {}\n
-              \n".format(bar['ticker'],
+def on_bar_close(self,bar):
+print("Ticker: {}\nDatetime: {}\nOpentime: {}\nClosetime: {}\nInterval: {}\nOpen: {}\nClose: {}\nClosed: {}\n\n".format(bar['ticker'],
               bar["datetime"],
               bar['open_time'],
               bar['close_time'],
@@ -94,7 +87,9 @@ Run:
 You will get:
 
 ```
+...
 {'ticker': 'BTCUSDT', 'open': '13520.32000000', 'close': '13491.76000000', 'opentime': 1514862000000, 'closetime': 1514862059999, 'interval': '1m', 'volume': '10.60982400'}
+...
 ```
 
 Hello World function inside rest.py:
