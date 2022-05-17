@@ -47,11 +47,13 @@ def get_historical_data(ticker,interval,start=False,end=False):
     response = public_request(endpoint,query).json()
     return [{"ticker":ticker,"open":i[1],"close":i[4],"opentime":i[0],"closetime":i[6],"interval":interval,"volume":i[5]} for i in response]
 
+def Hello_World():
+    data = get_historical_data("BTCUSDT","1m","01-02-2018","01-28-2018")
+
+    for i in data:
+        print(i)
+
+Hello_World()
+
 #keys = load_keys()
 #response = signed_request("/api/v3/account",f"",keys)
-
-data = get_historical_data("BTCUSDT","1m","01-02-2018","01-28-2018")
-
-
-for i in data:
-    print(i)
